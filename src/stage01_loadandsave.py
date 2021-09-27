@@ -1,11 +1,11 @@
-from os import sep
-from src.utils.all_utils import create_directory
-from src.all_utils import read_yaml
+import os 
+from src.utils.all_utils import read_yaml, create_directory
+#from src.all_utils import read_yaml
 import argparse
 import pandas as pd
 
 def get_data(config_path):
-    config = read_yaml(config_path)
+    config = read_yaml(config_path
 
     remote_data_path = config["data_source"]
     df = pd.read_csv(remote_data_path, sep=";")
