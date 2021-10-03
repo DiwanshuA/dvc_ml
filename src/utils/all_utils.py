@@ -10,5 +10,8 @@ def read_yaml(path_to_yaml: str) -> dict:
 def create_directory(dirs: list):
     for dir_path in dirs:
         os.makedirs(dir_path, exist_ok=True)
-        
+
+def save_local_df(data, data_path):
+    data.to_csv(data_path, index=False)
+    print(f"Data is saved at {data_path}")    
 
