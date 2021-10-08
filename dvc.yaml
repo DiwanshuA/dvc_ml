@@ -1,17 +1,17 @@
 stages:
   load_data:
-    cmd: python src/stage_01_load_save.py --config=config/config.yaml
+    cmd: python src/stage01_load_save.py --config=config/config.yaml
     deps:
-      - src/stage_01_load_save.py
+      - src/stage01_load_save.py
       - src/utils/all_utils.py
       - config/config.yaml
     outs:
       - artifacts/raw_local_dir/data.csv
 
   split_data:
-    cmd: python src/stage_02_split_data.py --config=config/config.yaml --params=params.yaml
+    cmd: python src/stage02_splitdata.py --config=config/config.yaml --params=params.yaml
     deps:
-      - src/stage_02_split_data.py
+      - src/stage02_splitdata.py
       - src/utils/all_utils.py
       - config/config.yaml
       - artifacts/raw_local_dir/data.csv
@@ -23,9 +23,9 @@ stages:
       - artifacts/split_data_dir/test.csv
 
   train:
-    cmd: python src/stage_03_train.py --config=config/config.yaml --params=params.yaml
+    cmd: python src/stage03_train.py --config=config/config.yaml --params=params.yaml
     deps:
-      - src/stage_03_train.py
+      - src/stage03_train.py
       - src/utils/all_utils.py
       - config/config.yaml
       - artifacts/split_data_dir/train.csv
@@ -37,9 +37,9 @@ stages:
       - artifacts/model_dir/ElasticNet.model
 
   evaluate:
-    cmd: python src/stage_04_evaluate.py --config=config/config.yaml --params=params.yaml
+    cmd: python src/stage04_evaluate.py --config=config/config.yaml --params=params.yaml
     deps:
-      - src/stage_04_evaluate.py
+      - src/stage04_evaluate.py
       - src/utils/all_utils.py
       - config/config.yaml
       - artifacts/split_data_dir/test.csv
