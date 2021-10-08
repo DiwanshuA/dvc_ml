@@ -26,8 +26,8 @@ stages:
       md5: 4eeb819858f32acc879df2eaeea6f8b6
       size: 400
     - path: params.yaml
-      md5: 990c7882dfad4d0165397f645c1d80d5
-      size: 42
+      md5: 7d7ff75005110772602ab9c10da537f5
+      size: 109
     - path: src/stage02_splitdata.py
       md5: 5aa54bb2ff0cd70083cc100db568bf25
       size: 1946
